@@ -7,12 +7,12 @@
       </div>
     </div>
     <div class="col-auto">
-      <a href="{% url 'tasks:task-create' %}" class="btn btn-primary">
+      <a href="{% url 'todo:task-create' %}" class="btn btn-primary">
         Add Task
       </a>
     </div>
   </div>
-  
+
   {% if task_list %}
     <table class="table">
       <tbody>
@@ -25,16 +25,16 @@
               {% else %}
                 <span class="text-danger fw-bold">Not done</span>
               {% endif %}
-              
+
               <br>
-            
-              Created: {{ task.created }} 
+
+              Created: {{ task.created }}
               {% if task.deadline %}
                 <span style="color: #8f1423">Deadline: {{ task.deadline }}</span>
               {% endif %}
-            
+
               <br>
-            
+
                 <span class="text-secondary">
                   <span class="fw-bold">Tags:</span>
                     {% if task.tags.all %}
@@ -43,20 +43,20 @@
                       {% endfor %}
                     {% endif %}
                 </span>
-            
+
               <br>
-              
-              <a href="{% url 'tasks:task-update' pk=task.id %}" class="link text-decoration-none">
+
+              <a href="{% url 'todo:task-update' pk=task.id %}" class="link text-decoration-none">
                 Update
               </a>
-              
-              <a href="{% url 'tasks:task-delete' pk=task.id %}" class="link text-danger text-decoration-none">
+
+              <a href="{% url 'todo:task-delete' pk=task.id %}" class="link text-danger text-decoration-none">
                 Delete
               </a>
-            
+
             </td>
             <td class="text-end">
-              <form method="post" action="{% url 'tasks:status-switcher' %}">
+              <form method="post" action="{% url 'todo:status-switcher' %}">
                 {% csrf_token %}
                 <input type="hidden" name="task_id" value="{{ task.id }}">
                 {% if task.done %}

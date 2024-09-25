@@ -16,7 +16,7 @@
           {% csrf_token %}
           {{ form|crispy }}
           <div class="text-center mt-5">
-            <a class="btn btn-danger mx-3" href="{% url 'tasks:task-list' %}">Cancel</a>
+            <a class="btn btn-danger mx-3" href="{% url 'todo:task-list' %}">Cancel</a>
             <input class="btn btn-primary align-items-center mx-3" type="submit" value="Submit">
           </div>
         </form>

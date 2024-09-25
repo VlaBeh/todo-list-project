@@ -12,6 +12,6 @@ class Task(models.Model):
         blank=True,
     )
     done = models.BooleanField(default=False)
-    tags = models.ManyToManyField(Tag, related_name="tasks", blank=True)
+    tags = models.ManyToManyField(Tag, related_name="todo", blank=True)
     def __str__(self: Task) -> str:
         return self.content
